@@ -2,9 +2,13 @@
   <div class="wrapper">
     <Header />
     <div class="wrapper-content">
-      <div class="container">
-        <router-view />
-      </div>
+      <section>
+        <div class="vue-sm isCenter">
+          <div class="container">
+            <router-view />
+          </div>
+        </div>
+      </section>
     </div>
     <Footer />
   </div>
