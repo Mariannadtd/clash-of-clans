@@ -1,6 +1,4 @@
 <template>
-
-
     <carousel :settings="settings" :breakpoints="breakpoints">
 
     <slide class="card__wrapper" v-for="item in items" :key="item.id">
@@ -27,6 +25,7 @@
         </template>
       </Card>
     </slide>
+    
     <template #addons>
       <navigation />
     </template>
@@ -54,7 +53,9 @@ export default {
       settings: {
         itemsToShow: 2,
         wrapAround: true,
-        snapAlign: 'center'
+        snapAlign: 'center',
+        transition: 300,
+        autoplay: 3000
       },
       breakpoints: {
         300: {

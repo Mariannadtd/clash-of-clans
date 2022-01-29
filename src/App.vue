@@ -3,8 +3,8 @@
     <Header />
     <div class="wrapper-content">
       <section>
-        <div class="vue-sm isCenter">
-          <div class="container">
+        <div class="container">
+          <div class="view-sm isCenter">
             <router-view />
           </div>
         </div>
