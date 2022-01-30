@@ -1,4 +1,5 @@
 <template>
+  <div class="http-found">
     <carousel :settings="settings" :breakpoints="breakpoints">
 
     <slide class="card__wrapper" v-for="item in items" :key="item.id">
@@ -11,7 +12,9 @@
         <template v-slot:body>
           {{  item.descr  }}
         </template>
-        <template v-slot:footer>
+
+        <CardFooter />
+        <!-- <template v-slot:footer>
           <div class="card-stats">
             <div
               v-for="(stat, index) in item.info"
@@ -22,20 +25,22 @@
               <div class="stat">{{ stat.title  }}</div>
             </div>
           </div>
-        </template>
+        </template> -->
       </Card>
     </slide>
-    
+
     <template #addons>
       <navigation />
     </template>
   </carousel>
+  </div>
 
 </template>
 
 <script>
 import items from '@/seeders/items.js'
 import Card from '@/components/UI/Card'
+import CardFooter from '@/components/UI/CardFooter'
 
 import 'vue3-carousel/dist/carousel.css'
 import { Carousel, Slide, Navigation } from 'vue3-carousel'
@@ -43,6 +48,7 @@ import { Carousel, Slide, Navigation } from 'vue3-carousel'
 export default {
   components: {
     Card,
+    CardFooter,
     Carousel,
     Slide,
     Navigation

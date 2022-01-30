@@ -1,23 +1,25 @@
 <template>
-  <div class="wrapper-person">
-    <div v-if="item">
-      <img :src="item.img" :alt="item.descr">
-      <h1 style="color: #fff;" class="title">{{  item.title  }}</h1>
-      <p>{{  item.descr  }}</p>
+  <div class="http-found">
+    <div class="wrapper-person">
+      <div v-if="item">
+        <img :src="item.img" :alt="item.descr">
+        <h1 style="color: #fff;" class="title">{{  item.title  }}</h1>
+        <p>{{  item.descr  }}</p>
 
-      <div class="card-stats">
-          <div
-            v-for="(stat, index) in item.info"
-            :key="index"
-            class="one-third"
-          >
-            <div class="stat-value">{{ stat.value  }}</div>
-            <div class="stat">{{ stat.title  }}</div>
+        <div class="card-stats">
+            <div
+              v-for="(stat, index) in item.info"
+              :key="index"
+              class="one-third"
+            >
+              <div class="stat-value">{{ stat.value  }}</div>
+              <div class="stat">{{ stat.title  }}</div>
+            </div>
           </div>
-        </div>
 
-      <div>
-        <router-link to="/" class="btn btnPrimary">Back to home</router-link>
+        <div>
+          <router-link to="/" class="btn btnPrimary">Back to home</router-link>
+        </div>
       </div>
     </div>
   </div>
@@ -38,6 +40,11 @@ export default {
 
     this.item = item
     console.log(item)
+  },
+  mounted() {
+   if(!$('.http-found')){
+     this.$router.push('/404')
+   }
   }
 }
 </script>
