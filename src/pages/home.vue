@@ -1,5 +1,5 @@
 <template>
-  <div class="http-found">
+
     <carousel :settings="settings" :breakpoints="breakpoints">
 
     <slide class="card__wrapper" v-for="item in items" :key="item.id">
@@ -33,14 +33,13 @@
       <navigation />
     </template>
   </carousel>
-  </div>
 
 </template>
 
 <script>
 import items from '@/seeders/items.js'
-import Card from '@/components/UI/Card'
-import CardFooter from '@/components/UI/CardFooter'
+import Card from '@/components/Card/Card'
+import CardFooter from '@/components/Card/CardFooter'
 
 import 'vue3-carousel/dist/carousel.css'
 import { Carousel, Slide, Navigation } from 'vue3-carousel'

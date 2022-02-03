@@ -1,5 +1,5 @@
 <template>
-  <div class="http-found">
+
     <div class="wrapper-person">
       <div v-if="item">
         <img :src="item.img" :alt="item.descr">
@@ -22,7 +22,7 @@
         </div>
       </div>
     </div>
-  </div>
+
 </template>
 
 <script>
@@ -34,17 +34,22 @@ export default {
       item: null
     }
   },
-    created() {
-    const alias = this.$route.params.itemAlias
-    const item = items.find(el => el.alias === alias)
+    async created () {
+      const alias = this.$route.params.itemAlias
+      const item = items.find(el => el.alias === alias)
 
-    this.item = item
-    console.log(item)
-  },
-  mounted() {
-   if(!$('.http-found')){
-     this.$router.push('/404')
-   }
+      this.item = item
+      console.log(item)
+
+      
+      const item = data.items.find(el => el.alias === this.$route.params.itemAlias)
+
+      if (!item) {
+        return await this.$router.push({ name: 'NotFound' })
+      }
+
+      this.item = JSON.parse(JSON.stringify(item))
+      this.isLoading = false
   }
 }
 </script>
